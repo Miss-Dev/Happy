@@ -1,0 +1,121 @@
+#page-landing{
+    background: linear-gradient(329.54deg, #29b6d1 0%, #00c7c7 100%) no-repeat;
+    min-height: 100vh;
+    text-align: center;
+    color: white;
+
+    display: flex;
+    align-items: center;
+    justify-content:center;
+}
+
+html{
+    overflow-y: hidden;
+}
+
+#container{
+    /* margin: auto;    */
+    width: min(90%, 112rem);
+
+}
+
+.location, h1, .visit p{
+    height: 15vh;
+}
+
+
+#logo{
+    animation-delay: 50ms;
+}
+
+.location{
+    animation-delay: 100ms;
+}
+
+main h1{
+    animation-delay:150ms;
+    font-size: clamp(4rem, 8vw, 8.4rem);
+
+}
+
+.visit a{
+    width:8rem;
+    height:8rem;
+    background:#ffb666;
+
+    border: none;
+    border-radius:3rem;
+
+    display:flex;
+    align-items: center;
+    justify-content: center;
+
+    margin:auto;
+    transition: background 0.2s;
+
+    animation-delay:250ms;
+}
+
+.visit a:hover{
+    background: #96feff;
+}
+
+
+
+.visit p{
+    animation-delay:200ms;
+}
+
+
+
+
+/* desktop version */
+@media(min-width:760px){
+    #container{
+        padding: 0rem 0rem;
+        background: url("../images/bg.svg") no-repeat 70% / clamp(25rem, 34vw, 40rem); 
+        
+    }
+
+    header{
+        display: flex;
+        align-items:center;
+        justify-content: space-between;
+    }
+    .location, h1, .visit p{
+        height: initial;
+        text-align: initial;
+
+    }
+    .location{
+        text-align: right;
+        font-size: 2.4rem;
+        line-height:1.5;
+
+    }
+
+    main h1{
+        font-size: clamp(4rem, 8vw, 8.4rem);
+        font-weight:bold;
+        line-height: .88;
+        margin: clamp(10%, 0, 12%) 0 4rem;
+
+        width: min(30rem, 80%);
+    }
+    .visit{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    .visit p{
+        font-size: 2.0rem;
+        line-height: 1.5;
+        width:clamp(20rem, 20vw, 30rem);
+    }
+
+    .visit a{
+        margin: initial;
+    }
+
+}
