@@ -5,6 +5,9 @@ const pages = require('./pages.js')
 // iniciando o express
 const server = express();
 server
+    // utilizar body do req
+    .use(express.urlencoded({extended: true}))
+
     .use(express.static('public'))
 
     // configurar template engines
@@ -15,6 +18,7 @@ server
     .get('/orfanato', pages.orfanato)
     .get('/orfanatos', pages.orfanatos)
     .get('/criar-orfanato', pages.criarOrfanato)
+    .post('/save-orphanage', pages.saveOrfanato)
 
 
 // ligar o servidor

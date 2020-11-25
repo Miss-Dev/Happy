@@ -93,6 +93,12 @@ function toggleSelect(event){
     // atualizar o meu input hidden com o valor selecionado
 
 }
+/*
+function validate(event){
+    if(event.preventDefault()){
+        alert("Selecione um ponto no mapa!")
+    }
+}*/
 
 
 

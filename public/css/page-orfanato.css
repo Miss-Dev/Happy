@@ -105,6 +105,8 @@ main{
     display: grid;
     grid-template-columns: 1fr 1fr;
     column-gap: 2rem;
+
+    line-height: 1.5
 }
 
 .mostrar-detalhes div{
@@ -125,10 +127,21 @@ main{
     color: #5c8599;
 }
 .mostrar-detalhes .dias-da-semana{
-    background: linear(159,16deg, #e6fff6 7.85%, #ffffff 91.03%);
-    border: 1px solid #A1E9C5;
     border-radius: 20px;
-    color: #37C77F;
+    
 }
 
+.dias-da-semana.open{
+    background: linear(159,16deg, #e6fff6 7.85%, #ffffff 91.03%);
+    border: 1px solid #A1E9C5;
+    color: #37C77F;
+
+} 
+
+.dias-da-semana.closed{
+    background: linear(159,16deg, #fcf0f4 7.85%, #ffffff 91.03%);
+    border: 1px solid #ffbcd4;
+    color: #ff669d;
+
+} 
 

@@ -14,7 +14,7 @@
     
 
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
-    <title>Lar das meninas | Happy</title>
+    <title>{{orfanato.name}} | Happy</title>
     <!-- mapa interativo link css, leafletjs-->
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
     integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
@@ -41,40 +41,33 @@
 
       <main class="animate-appear with-sidebar">
         <div class="orfanato-detalhes">
-          <img src="/images/home.jpg" alt="Lar das meninas">
+          <img src="{{orfanato.firstImage}}" alt="{{orfanato.name}}">
 
           <div class="images">
+            {{#each orfanato.images}}
             <button onclick="selectimage(event)" class="active" type="button">
-              <img src="https://source.unsplash.com/random?id=1" alt="Lar das meninas">
+              <img src="{{this}}" alt="{{orfanato.name}}">
             </button>
-
-            <button onclick="selectimage(event)" type="button">
-              <img src="https://source.unsplash.com/random?id=2" alt="Lar das meninas">
-            </button>
-            <button onclick="selectimage(event)" type="button">
-              <img src="https://source.unsplash.com/random?id=3" alt="Lar das meninas">
-            </button>
-            <button onclick="selectimage(event)" type="button">
-              <img src="https://source.unsplash.com/random?id=4" alt="Lar das meninas">
-            </button>
-            <button onclick="selectimage(event)" type="button">
-              <img src="https://source.unsplash.com/random?id=5" alt="Lar das meninas">
-            </button>
-            <button onclick="selectimage(event)" type="button">
-              <img src="https://source.unsplash.com/random?id=6" alt="Lar das meninas">
-            </button>
+            {{/each}}
+            
           </div>
 
           <div class="orfanato-detalhes-content">
-            <h1>Lar das meninas</h1>
+            <h1>{{orfanato.name}}</h1>
 
-            <p>Presta assistência a crianças de 06 a 15 anos que encontram-se em situação de risco e/ou vulnerabilidade social.</p>
+            <p>{{orfanato.about}}</p>
 
             <div class="map-container">
-              <div id="mapid">    
-              </div>
+              <div id="mapid"></div>  
+                <span
+                 data-lat = "{{orfanato.lat}}"
+                 data-lng = "{{orfanato.lng}}"
+                ></span>
+              
               <footer>
-                <a href="">Ver rotas no Google Maps</a>
+                <a
+                target="_blank"
+                href="https://maps.google.com/mobile?q={{orfanato.lat}},{{orfanato.lng}}&z=15">Ver rotas no Google Maps</a>
               </footer>
             </div>
 
@@ -82,24 +75,32 @@
 
             <h2>Instruções para visita</h2>
 
-            <p>Venha como se sentir a vontade e traga muito amor e pacência para dar</p>
+            <p>{{orfanato.instructions}}</p>
 
             <div class="mostrar-detalhes">
               <div class="hora">
                 <img src="/images/clock.svg" alt="Horários">
-                Horário de visitas das 8h até 18h
+                {{orfanato.opening_hours}}
               </div>
-              <div class="dias-da-semana">
-                <img src="/images/info.svg" alt="informações">
-                Atendemos todos os dias da semana
-              </div>
-
-            </div>
+              {{#if orfanato.open_on_weekends}}              
+                <div class="dias-da-semana open">                  
+                  <img src="/images/info.svg" alt="informações">
+                  Atendemos fim de semana                
+                </div>
+                {{else}}
+                  <div class="dias-da-semana closed">                  
+                  <img src="/images/info-red.svg" alt="informações">
+                  Não atendemos fim de semana  
+                  </div>
+              {{/if}}
+            </div>           
             
-            <button class="primary-button" type="button">
+            <a href="https://api.whatsapp.com/send?l=pt_BR&phonr={{orfanato.whatsapp}}&text=Oi, quero conversar sobre visitas no {{orfanato.name}}"
+              target="_blank"
+              class="primary-button" type="button">
               <img src="/images/whatsapp.svg" alt="Chamar no whatsapp">
               Entrar em contato
-            </button>
+            </a>
 
           </div>
         </div>
